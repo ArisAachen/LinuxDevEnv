@@ -6,7 +6,8 @@
 1. 购置一台专门的笔记本用于 Linux 开发，考虑到成本问题，犹豫了一段时间后，果断放弃。    
 2. 购买云主机，再使用远程桌面连接，在云主机上进行开发，在初期使用此方案，确实可行，    
 但是后续发现在旅途中，受限于网络环境，体验很差，另一方面由于成本原因，购置的云主机配置不高。   
-3. 由于我使用的是 MacBook, 考虑如何在 MacBook 上搭建 ArchLinux 开发环境， 以记录此方案为主。 
+3. 使用虚拟机, 方案比较消耗资源 
+4. 由于我使用的是 MacBook, 考虑如何在 MacBook 上搭建 ArchLinux 开发环境， 以记录此方案为主。 
 
 ## 使用到的工具 
 MacBook  Docker-Desktop  Vscode  docker-mac-net-connect  Clash
