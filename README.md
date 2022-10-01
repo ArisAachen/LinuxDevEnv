@@ -53,28 +53,43 @@ Docker Desktop for Windows, or Docker EE for Windows Server.
 ``` 
 > docker run -itd --privileged --name ArchDevEnv -v ~/Desktop/OpenSource:/workspace/OpenSource -v ~/Desktop/Projects:/workspace/Projects archlinux:latest /sbin/init
 ```
-5. 使用 docker exec 或者 之前通过 Docker-Desktop 进入 CLI, 安装和配置好相应的源  
+5. 修改宿主主机的 Clash 配置, 或者可以直接在 Clash-for-windows 上设置. 
+``` conf
+allow-lan: true
+bind-address: '*'
+```
+
+6. 设置代理环境变量为宿主主机的 ip:port, 使用 curl -v 测试是否正常  
+``` shell
+> export https_proxy=http://192.168.1.11:7890 http_proxy=http://192.168.1.11:7890
+> curl -v https://www.google.com/
+* Uses proxy env variable https_proxy == 'http://192.168.1.8:7890'
+*   Trying 192.168.1.8:7890...
+* Connected to 192.168.1.8 (192.168.1.8) port 7890 (#0)
+```
+
+7. 使用 docker exec 或者 之前通过 Docker-Desktop 进入 CLI, 安装和配置好相应的源  
 我使用的是 reflector 更新为 cn 源  
 6. 安装 sudo, base-devel. 
 ``` shell 
 > yay -S sudo base-devel 
 ```
-7. 添加和配置 sudo 组权限  
+8. 添加和配置 sudo 组权限  
 ``` shell 
 # 添加 sudo 组
 > groupadd sudo 
 # 修改 /etc/sudoers 
 将 "# %sudo   ALL=(ALL:ALL) ALL" 前面的 “#” 取消 
 ```
-8. 创建个人用户, 属组为 sudo, 设置密码    
-9. 测试一下 yay 是否正常使用  
+9. 创建个人用户, 属组为 sudo, 设置密码    
+10. 测试一下 yay 是否正常使用  
 ``` shell
 > yay -S cpr 
 ```
-10. vscode 安装 “Dev Containers” 和 "Docker" 插件, 在 Docker 插件栏可以看到 自己的 Container,    
+11. vscode 安装 “Dev Containers” 和 "Docker" 插件, 在 Docker 插件栏可以看到 自己的 Container,    
 右键选择 "attach Visual Studio Code", 再选择打开项目, 发现当前是从 ArchLinux 上打开的项目
 
-11. 配置好 oh-my-zsh 和 powerlevel10k, 发现在 vscode 终端, 发现这两个项目也能在 root 用户下正常使用.  
+12. 配置好 oh-my-zsh 和 powerlevel10k, 发现在 vscode 终端, 发现这两个项目也能在 root 用户下正常使用.  
 ``` shell 
   /workspace/P/DeathNode on   master *2 !2 ?13
 ❯ 
