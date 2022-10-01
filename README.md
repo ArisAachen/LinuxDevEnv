@@ -1,0 +1,2 @@
+# LinuxDevEnv
+记录在Mac上搭建ArchLinux开发环境的项目
